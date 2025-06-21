@@ -1,0 +1,210 @@
+.container{
+height: 806px;
+border-width: 1px;
+background: linear-gradient(180deg, rgba(215, 199, 244, 0.2) 0%, rgba(151, 133, 186, 0.2) 100%);
+margin: 0px;
+display: flex;
+}
+
+.leftContainer{
+    width: 208px;
+height: 806px;
+background-color: #FFFFFF;
+}
+.edit{
+    cursor: pointer;
+}
+
+.topBar{
+    display: none;
+
+}
+
+.toggleButton{
+    cursor: pointer;
+}
+
+.leftInnerContainer{
+    width: 208px;
+height: 97px;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: center;
+}
+.newChat{
+    width: 208px;
+height: 47px;
+background-color: #D7C7F4;
+display: flex;
+align-items: center;
+justify-content: space-evenly;
+
+font-family: Ubuntu;
+font-weight: 400;
+font-size: 20px;
+line-height: 100%;
+letter-spacing: 0%;
+color: #000000;
+}
+.pastConversations{
+    width: 175.15789794921875px;
+height: 39px;
+border-radius: 10px;
+background-color: #D7C7F4;
+
+font-family: Ubuntu;
+font-weight: 700;
+font-size: 17px;
+line-height: 100%;
+letter-spacing: 0%;
+
+color: #414146;
+display: flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+}
+.rightContainer{
+    position: relative;
+}
+.mainHeading{
+    font-family: Ubuntu;
+font-weight: 700;
+font-size: 28px;
+line-height: 100%;
+letter-spacing: 0%;
+color: #9785BA;
+margin-left: 20px;
+cursor: pointer;
+}
+
+.header{
+width: 348px;
+height: 32px;
+font-family: Ubuntu;
+font-weight: 500;
+font-size: 28px;
+line-height: 100%;
+letter-spacing: 0%;
+color: #000000;
+}
+.logo{
+    width: 65.29553985595703px;
+height: 69px;
+
+}
+
+.headerLogo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 200px;
+    left: 470px;
+}
+
+.card{
+    width: 600px;
+height: 111px;
+border-radius: 5px;
+background-color: #FFFFFF;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding-left: 20px;
+cursor: pointer;
+}
+.cardGrid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 30px;
+    column-gap: 15px;
+    position: absolute;
+    top: 430px;
+    left: 20px;
+}
+.cardQuestion{
+    font-family: Ubuntu;
+font-weight: 700;
+font-size: 20px;
+line-height: 100%;
+letter-spacing: 0%;
+color: #000000;
+margin: 0px 0px 15px 0px;
+}
+.cardPara{
+    font-family: Open Sans;
+font-weight: 400;
+font-size: 16px;
+line-height: 100%;
+letter-spacing: 0%;
+color: #00000080;
+margin: 0px;
+}
+
+
+.inputContainer{
+    width: 1280px;
+height: 41px;
+border-radius: 5px;
+border-width: 1px;
+position: absolute;
+top: 735px;
+left: 5px;
+display: flex;
+justify-content: space-evenly;
+align-items: center;
+}
+.input{
+    width: 1050px;
+height: 41px;
+border-radius: 5px;
+border-width: 1px;
+border: 1px solid #00000073;
+background-color: #FFFFFF;
+}
+.input:focus{
+    outline: none;
+}
+.askButton{
+width: 73.82015991210938px;
+height: 41px;
+border: none;
+border-radius: 5px;
+background-color: #D7C7F4;
+font-family: Ubuntu;
+font-weight: 400;
+font-size: 20px;
+line-height: 100%;
+letter-spacing: 0%;
+cursor: pointer;
+}
+.saveButton{
+width: 73.82015991210938px;
+height: 41px;
+border: none;
+border-radius: 5px;
+background-color: #D7C7F4;
+
+font-family: Ubuntu;
+font-weight: 400;
+font-size: 20px;
+line-height: 100%;
+letter-spacing: 0%;
+cursor: pointer;
+}
+
+
+@media (max-width: 768px){
+    .topBar{
+        display: flex;
+    }
+    .toggleButton{
+        width: 53px;
+        height: 45.91891860961914px;
+        border-width: 4px;
+    }
+}
