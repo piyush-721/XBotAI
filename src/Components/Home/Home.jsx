@@ -1,95 +1,170 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect, useRef } from "react";
 import styles from "./Home.module.css";
 import newChatLogo from "../../Assets/new-chat-logo.png";
 import edit from "../../Assets/edit.png";
 import logo from "../../Assets/center-logo.png";
-import axios from 'axios';
 import data from "../../ApiData/apiData.json";
 import { FiAlignJustify } from "react-icons/fi";
+import ChatCard from "../ChatCard/ChatCard";
 
 function Home() {
+  const [questionList, setQuestionList] = useState([]);
+  const [defaultQuestions, setDefaultQuestions] = useState([]);
+  const [showLeft, setShowLeft] = useState(window.innerWidth > 768);
+  const [submittedQuestions, setSubmittedQuestions] = useState([]);
+  const [message, setMessage] = useState("");
 
-    const [questionList, setQuestionList] = useState([]);
-    const [defaultQuestions, setDefaultQuestions] = useState([]);
-    const [showleft, setShowLeft] = useState(true);
+  const chatRef = useRef(null); // it actually stores reference of the entire element and we can access and 
+                                // modify using .current property
 
-    useEffect(() => {
-        setDefaultQuestions(data.slice(-4));
-        // console.log(data);
-        setQuestionList(data);
+  useEffect(() => {
+    setDefaultQuestions(data.slice(-4));
+    setQuestionList(data);
+  }, []);
+//   console.log(defaultQuestions);
+//   console.log(questionList);
 
-    }, []);
-    // console.log(defaultQuestions);
+  useEffect(() => {
+    if (chatRef.current) {
+      chatRef.current.scrollTop = chatRef.current.scrollHeight;
+    }
+  }, [submittedQuestions]);
+
+  // save in local storage
+  useEffect(() => {
+    localStorage.setItem("chatData", JSON.stringify(submittedQuestions))
+  }, [submittedQuestions]);
+
+  const handleAsk = () => {
+    if (!message.trim()) return;
+
+    const time = new Date().toLocaleTimeString([], {
+        hour: '2-digit',
+        minute: '2-digit',
+    })
+
+    // User message
+    const userMessage = {
+      id: Date.now(),
+      sender: "user",
+      message,
+      time,
+    }
+
+    // Find bot's response
+    const matched = data.find((item) => item.question === message);
+    const botReply = {
+      id: Date.now() + 1,
+      sender: "ai",
+      message: matched ? matched.response : "Sorry, Did not understand your query!",
+      time,
+    };
+
+    setSubmittedQuestions((prev) => [...prev, userMessage, botReply]);
+    setMessage("");
+  };
+      console.log(submittedQuestions);
+
+    const addUserAndBotMessages = (question) => {
+    // const time = new Date().toLocaleTimeString();
+    const time = new Date().toLocaleTimeString([], {
+        hour: '2-digit',
+        minute: '2-digit',
+    })
+
+    const userMessage = {
+      id: Date.now(),
+      sender: "user",
+      message: question,
+      time,
+    };
+    const matched = data.find((item) => item.question === question);
+    const botReply = {
+      id: Date.now() + 1,
+      sender: "ai",
+      message: matched ? matched.response : "Sorry, Did not understand your query!",
+      time,
+    };
+    setSubmittedQuestions((prev) => [...prev, userMessage, botReply]);
+    };
+
   return (
     <div className={styles.container}>
+      <div className={styles.topBar}>
+        <button
+          className={styles.toggleButton}
+          onClick={() => setShowLeft(!showLeft)}
+        > 
+          <FiAlignJustify /> 
+        </button>
+      </div>
 
-        <div className={styles.topBar}>
-            <button
-                className={styles.toggleButton} 
-                onClick={() => setShowLeft(!showleft)}
-            ><FiAlignJustify /></button>
-        </div>
-
-        {showleft && (
-            <div className={styles.leftContainer}>
-                <div className={styles.leftInnerContainer}>
-                    <div className={styles.newChat}>
-                        <img src={newChatLogo} alt="logo" />
-                        <h3>New Chat</h3>
-                        <img className={styles.edit} src={edit} alt="edit button" />
-                    </div>
-                    <div className={styles.pastConversations}>
-                        <h4>Past Conversations</h4>
-                    </div>
-                </div>
+      {showLeft && (
+        <div className={styles.leftContainer}>
+          <div className={styles.leftInnerContainer}>
+            <div className={styles.newChat}>
+              <img className={styles.newChatLogo} src={newChatLogo} alt="logo" />
+              <h3>New Chat</h3>
+              <img className={styles.edit} src={edit} alt="edit button" />
             </div>
+            <div className={styles.pastConversations}>
+              <h4>Past Conversations</h4>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <div className={styles.rightContainer}>
+        <h1 className={styles.mainHeading}>Bot AI</h1>
+
+        {!submittedQuestions.length > 0 && (
+          <div className={styles.headerLogo}>
+            <h1 className={styles.header}>How Can I Help You Today?</h1>
+            <img className={styles.logo} src={logo} alt="logo" />
+          </div>
         )}
 
+        {/* Chat section */}
+        {submittedQuestions.length > 0 ? (
+          <div className={styles.chatCard} ref={chatRef}>
+            {submittedQuestions.map((item) => (
+              <ChatCard
+                key={item.id}
+                sender={item.sender}
+                message={item.message}
+                time={item.time}
+              />
+            ))}
+          </div>
+        ) : (
+          <div className={styles.cardGrid}>
+            {defaultQuestions.map((item) => (
+              <div
+                className={styles.card}
+                key={item.id}
+                onClick={() => addUserAndBotMessages(item.question)}
+              >
+                <h6 className={styles.cardQuestion}>{item.question}</h6>
+                <p className={styles.cardPara}>Get immediate AI generated response</p>
+              </div>
+            ))}
+          </div>
+        )}
 
-        <div className={styles.rightContainer}>
-            <h1 className={styles.mainHeading}>Bot AI</h1>
-            <div className={styles.headerLogo}>
-                <h1 className={styles.header}>How Can I Help You Today?</h1>
-                <img className={styles.logo} src={logo} alt="logo" />
-            </div>
-            <div className={styles.cardGrid}>
-                <DefaultCard questions={defaultQuestions}/>
-            </div>
-            <div>
-                <InputComponent />
-            </div>
+        <div className={styles.inputContainer}>
+          <input
+            className={styles.input}
+            type="text"
+            placeholder="Message Bot AI…"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+          />
+          <button className={styles.askButton} onClick={handleAsk}>Ask</button>
+          <button className={styles.saveButton}>Save</button>
         </div>
-        
+      </div>
     </div>
-  )
+  );
 }
 
 export default Home;
-
-function DefaultCard({questions}){
-    return(
-        <>
-            {
-                questions.map((item) => (
-                    <div className={styles.card} key={item.id}>
-                        <h6 className={styles.cardQuestion}>{item.question}</h6>
-                        <p className={styles.cardPara}>Get immediate AI generated response</p>
-                    </div>
-                ))
-            }
-        </>
-    )
-}
-
-
-function InputComponent() {
-    return(
-        <>
-            <div className={styles.inputContainer}>
-                <input className={styles.input} type="text" placeholder='Message Bot AI…' onChange={""}></input>
-                <button className={styles.askButton} type='submit'>Ask</button>
-                <button className={styles.saveButton} type='button'>Save</button>
-            </div>
-        </>
-    )
-}

@@ -1,0 +1,59 @@
+.card{
+
+margin-left: 30px;
+margin-top: 10px;
+width: 1015.3928833007812px;
+height: 105px;
+border: 1px solid grey;
+display: flex;
+align-items: center;
+border-radius: 20px;
+border: none;
+box-shadow: -4px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.imageDiv{
+    margin: 0px 20px;
+}
+
+.logoSize{
+    width: 65.29553985595703px;
+height: 69px;
+}
+
+.chatDiv{
+    display: flex;
+    flex-direction: column;
+}
+
+.youOrSoul{
+    margin: 0px 0px 0px 0px;
+    font-family: Ubuntu;
+font-weight: 700;
+font-size: 16px;
+line-height: 100%;
+letter-spacing: 0%;
+color: #000000;
+}
+
+.question{
+    margin: 10px 0px 0px 0px;
+font-family: Open Sans;
+font-weight: 400;
+font-size: 16px;
+line-height: 100%;
+letter-spacing: 0%;
+color: #000000;
+}
+
+.time{
+    margin: 10px 0px 0px 0px;
+
+    font-family: Open Sans;
+font-weight: 400;
+font-size: 12px;
+line-height: 100%;
+letter-spacing: 0%;
+color: #0000009E;
+
+}
