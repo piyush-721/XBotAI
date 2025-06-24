@@ -3,8 +3,9 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  height: 650px; 
+  height: 550px; 
   overflow-y: auto;
+
 }
 
 .scrollContainer::-webkit-scrollbar {

@@ -10,6 +10,8 @@
   display: flex;
 }
 
+
+
 .leftContainer {
   width: 208px;
   height: 806px;
@@ -60,6 +62,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  
 }
 
 .topBar {
@@ -76,6 +79,25 @@
 .rightContainer {
   position: relative;
   flex: 1;
+}
+
+.header{
+    font-family: Ubuntu;
+font-weight: 400;
+font-size: 28px;
+line-height: 100%;
+letter-spacing: 0%;
+text-align: center;
+margin: 40px auto 100px auto;
+}
+.todayChat{
+    font-family: Ubuntu;
+font-weight: 400;
+font-size: 20px;
+line-height: 100%;
+letter-spacing: 0%;
+margin: 0px;
+
 }
 
 .inputContainer {

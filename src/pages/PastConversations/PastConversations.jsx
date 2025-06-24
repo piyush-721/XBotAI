@@ -38,6 +38,8 @@ function PastConversations() {
       )}
 
       <div className={styles.rightContainer}>
+        <h1 className={styles.header}>Conversation History</h1>
+        <h6 className={styles.todayChat}>Today's Chats</h6>
         <HistoryCard />
         <div className={styles.inputContainer}>
           <input
