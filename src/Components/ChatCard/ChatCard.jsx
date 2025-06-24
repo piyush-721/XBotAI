@@ -4,6 +4,7 @@ import boy from "../../Assets/boy.png";
 import logo from "../../Assets/center-logo.png";
 import { Rating, Modal } from "@mui/material";
 import { X } from "lucide-react";
+import bulb from "../../Assets/bulb.png";
 
 function ChatCard({ sender, message, time, isHome, setSubmittedQuestions, id, rating, feedback }) {
   const [showModal, setShowModal] = useState(false);
@@ -49,12 +50,16 @@ function ChatCard({ sender, message, time, isHome, setSubmittedQuestions, id, ra
               <Modal open={showModal} onClose={() => setShowModal(false)}>
                 <div className={styles.modalContainer}>
                   <div className={styles.modalHeader}>
-                    <h4>Provide Additional Feedback</h4>
-                    <X className={styles.closeIcon} onClick={() => setShowModal(false)} />
+                    <div style={{display:"flex", alignItems:"center"}}>
+                    <img className={styles.bulb} src={bulb} alt="idea" />
+                    <h4 className={styles.header}>Provide Additional Feedback</h4>
+                    </div>
+                    <div>
+                        <X className={styles.closeIcon} onClick={() => setShowModal(false)} />
+                    </div>
                   </div>
                   <textarea
                     className={styles.modalTextArea}
-                    placeholder="Your thoughts here..."
                     value={localFeedback}
                     onChange={(e) => setLocalFeedback(e.target.value)}
                   />

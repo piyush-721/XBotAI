@@ -118,7 +118,7 @@ function Home() {
             <img className={styles.logo} src={logo} alt="logo" />
           </div>
         )}
-
+        
         {submittedQuestions.length > 0 ? (
           <div className={styles.chatCard} ref={chatRef}>
             {submittedQuestions.map((item) => (
