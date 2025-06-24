@@ -118,7 +118,7 @@ function Home() {
             <img className={styles.logo} src={logo} alt="logo" />
           </div>
         )}
-        
+
         {submittedQuestions.length > 0 ? (
           <div className={styles.chatCard} ref={chatRef}>
             {submittedQuestions.map((item) => (
@@ -150,7 +150,7 @@ function Home() {
           <input
             className={styles.input}
             type="text"
-            placeholder="Message Bot AI…"
+            placeholder="Message Bot AI..."
             value={message}
             onChange={(e) => setMessage(e.target.value)}
           />
