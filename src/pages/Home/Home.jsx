@@ -33,6 +33,11 @@ function Home() {
   }, [submittedQuestions]);
 
   useEffect(() => {
+  const savedData = JSON.parse(localStorage.getItem("chatData")) || [];
+  setSubmittedQuestions(savedData);
+}, []);
+
+  useEffect(() => {
     localStorage.setItem("chatData", JSON.stringify(submittedQuestions));
   }, [submittedQuestions]);
 
