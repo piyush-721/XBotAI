@@ -103,7 +103,7 @@ function Home() {
               <img onClick={handleEdit} className={styles.edit} src={edit} alt="edit button" />
             </div>
             <div onClick={handlePastConversations} className={styles.pastConversations}>
-              <h4>Past Conversations</h4>
+              <a href="/history">Past Conversations</a>
             </div>
           </div>
         </div>
