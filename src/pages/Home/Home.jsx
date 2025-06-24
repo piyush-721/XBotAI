@@ -100,7 +100,9 @@ function Home() {
             <div className={styles.newChat}>
               <img className={styles.newChatLogo} src={newChatLogo} alt="logo" />
               <h3>New Chat</h3>
+              <a href="/">
               <img onClick={handleEdit} className={styles.edit} src={edit} alt="edit button" />
+              </a>
             </div>
             <div onClick={handlePastConversations} className={styles.pastConversations}>
               <a href="/history" style={{textDecoration:"none", color:"#414146"}}>Past Conversations</a>
