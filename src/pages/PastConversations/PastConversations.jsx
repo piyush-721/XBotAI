@@ -45,10 +45,10 @@ function PastConversations() {
           <input
             className={styles.input}
             type="text"
-            placeholder="Message Bot AI…"
+            placeholder="Message Bot AI..."
           />
-          <button className={styles.askButton}>Ask</button>
-          <button className={styles.saveButton}>Save</button>
+          <button type="submit" className={styles.askButton}>Ask</button>
+          <button type="button" className={styles.saveButton}>Save</button>
         </div>
       </div>
     </div>
