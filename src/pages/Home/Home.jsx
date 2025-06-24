@@ -119,7 +119,9 @@ function Home() {
       )}
 
       <div className={styles.rightContainer}>
-        <h1 className={styles.mainHeading}>Bot AI</h1>
+        <header>
+          <h1 className={styles.mainHeading}>Bot AI</h1>
+        </header>
 
         {!submittedQuestions.length > 0 && (
           <div className={styles.headerLogo}>
