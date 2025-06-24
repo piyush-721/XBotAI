@@ -99,7 +99,9 @@ function Home() {
           <div className={styles.leftInnerContainer}>
             <div className={styles.newChat}>
               <img className={styles.newChatLogo} src={newChatLogo} alt="logo" />
-              <h3>New Chat</h3>
+              <a style={{textDecoration:"none", color:"#000000"}} href="/">
+              <h3 >New Chat</h3>
+              </a>
               <a href="/">
               <img onClick={handleEdit} className={styles.edit} src={edit} alt="edit button" />
               </a>
