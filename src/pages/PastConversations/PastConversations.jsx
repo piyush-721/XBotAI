@@ -12,12 +12,15 @@ function PastConversations() {
 
   const handleEdit = () => {
     navigate("/");
-  }
+  };
 
   return (
     <div className={styles.container}>
       <div className={styles.topBar}>
-        <button className={styles.toggleButton} onClick={() => setShowLeft(!showLeft)}>
+        <button
+          className={styles.toggleButton}
+          onClick={() => setShowLeft(!showLeft)}
+        >
           <FiAlignJustify />
         </button>
       </div>
@@ -41,7 +44,11 @@ function PastConversations() {
         <h1 className={styles.header}>Conversation History</h1>
         <h6 className={styles.todayChat}>Today's Chats</h6>
         <HistoryCard />
-        <div className={styles.inputContainer}>
+
+        <form
+          className={styles.inputContainer}
+          onSubmit={(e) => e.preventDefault()} 
+        >
           <input
             className={styles.input}
             type="text"
@@ -49,7 +56,7 @@ function PastConversations() {
           />
           <button type="submit" className={styles.askButton}>Ask</button>
           <button type="button" className={styles.saveButton}>Save</button>
-        </div>
+        </form>
       </div>
     </div>
   );

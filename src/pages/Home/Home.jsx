@@ -150,7 +150,13 @@ function Home() {
           </div>
         )}
 
-        <div className={styles.inputContainer}>
+        <form
+          className={styles.inputContainer}
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleAsk();
+          }}
+        >
           <input
             className={styles.input}
             type="text"
@@ -158,9 +164,11 @@ function Home() {
             value={message}
             onChange={(e) => setMessage(e.target.value)}
           />
-          <button type="submit" className={styles.askButton} onClick={handleAsk}>Ask</button>
+          <button type="submit" className={styles.askButton}>Ask</button>
           <button type="button" className={styles.saveButton}>Save</button>
-        </div>
+        </form>
+
+        
       </div>
     </div>
   );
