@@ -1,0 +1,176 @@
+.container {
+  height: 806px;
+  border-width: 1px;
+  background: linear-gradient(
+    180deg,
+    rgba(215, 199, 244, 0.2) 0%,
+    rgba(151, 133, 186, 0.2) 100%
+  );
+  margin: 0;
+  display: flex;
+}
+
+.leftContainer {
+  width: 208px;
+  height: 806px;
+  background-color: #ffffff;
+}
+
+.leftInnerContainer {
+  width: 208px;
+  height: 97px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.newChat {
+  width: 208px;
+  height: 47px;
+  background-color: #d7c7f4;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  font-family: Ubuntu;
+  font-weight: 400;
+  font-size: 20px;
+  color: #000000;
+}
+
+.newChatLogo {
+  height: 30px;
+  width: 30px;
+}
+
+.edit {
+  cursor: pointer;
+}
+
+.pastConversations {
+  width: 175px;
+  height: 39px;
+  border-radius: 10px;
+  background-color: #d7c7f4;
+  font-family: Ubuntu;
+  font-weight: 700;
+  font-size: 17px;
+  color: #414146;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.topBar {
+  display: none;
+}
+
+.toggleButton {
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 24px;
+}
+
+.rightContainer {
+  position: relative;
+  flex: 1;
+}
+
+.inputContainer {
+  width: 1130px;
+  height: 41px;
+  border-radius: 5px;
+  border-width: 1px;
+  position: absolute;
+  bottom: 20px;
+  left: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.input {
+  width: 900px;
+  height: 41px;
+  border-radius: 5px;
+  border: 1px solid #00000073;
+  background-color: #ffffff;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.askButton,
+.saveButton {
+  width: 73.82px;
+  height: 41px;
+  border: none;
+  border-radius: 5px;
+  background-color: #d7c7f4;
+  font-family: Ubuntu;
+  font-weight: 400;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+    height: auto;
+    padding: 0;
+  }
+
+  .topBar {
+    display: flex;
+    height: 60px;
+    align-items: center;
+    padding: 0 10px;
+  }
+
+  .toggleButton {
+    width: 40px;
+    height: 40px;
+  }
+
+  .leftContainer {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 180px;
+    height: 150px;
+    z-index: 1;
+    background: transparent;
+  }
+
+  .rightContainer {
+    width: 100%;
+    padding-bottom: 90px;
+    margin-left: -40px;
+  }
+
+  .inputContainer {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 95%;
+    padding: 0 10px;
+    display: flex;
+    gap: 8px;
+  }
+
+  .input {
+    width: 240px;
+    height: 40px;
+  }
+
+  .askButton,
+  .saveButton {
+    width: 50px;
+    height: 40px;
+    font-size: 16px;
+  }
+}

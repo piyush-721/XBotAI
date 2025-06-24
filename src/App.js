@@ -1,7 +1,8 @@
 import './App.css';
 import AppLayout from './AppLayout';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Home from './Components/Home/Home';
+import Home from './pages/Home/Home';
+import PastConversations from './pages/PastConversations/PastConversations';
 
 export const router = createBrowserRouter([
   {
@@ -11,6 +12,10 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <Home />
+      },
+      {
+        path: "history",
+        element: <PastConversations />
       },
     ]
   },
