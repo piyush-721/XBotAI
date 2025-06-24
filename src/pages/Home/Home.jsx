@@ -154,8 +154,8 @@ function Home() {
             value={message}
             onChange={(e) => setMessage(e.target.value)}
           />
-          <button className={styles.askButton} onClick={handleAsk}>Ask</button>
-          <button className={styles.saveButton}>Save</button>
+          <button type="submit" className={styles.askButton} onClick={handleAsk}>Ask</button>
+          <button type="button" className={styles.saveButton}>Save</button>
         </div>
       </div>
     </div>
